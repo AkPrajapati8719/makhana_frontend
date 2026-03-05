@@ -1,0 +1,90 @@
+/* ===============================
+   PREMIUM DARK LUXURY THEME
+   =============================== */
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+
+  /* Brand Colors */
+  --color-primary: #14532D;
+  --color-accent: #C6A75E;
+
+  /* Text */
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+
+  /* Borders */
+  --border-color: #334155;
+
+  /* Hover */
+  --hover-accent: #D4B96A;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at top right, #14532D20, transparent 40%), #0F172A;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+/* Card Style */
+.card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border: 1px solid var(--color-accent);
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  color: black;
+}
+
+/* Accent Text */
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* Inputs */
+input, textarea {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Links */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,56 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vite build output
+build/
+
+# Environment files
+.env
+.env.*
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Desktop.ini
+
+# npm
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Misc
+coverage/
+*.tgz
+
+# Optional: ignore public/images if generated
+# public/images/
