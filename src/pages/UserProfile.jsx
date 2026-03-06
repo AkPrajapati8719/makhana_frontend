@@ -32,7 +32,7 @@ function UserProfile({ user, setUser }) {
     return;
   }
 
-  axios.get('http://localhost:8082/api/orders/all')
+  axios.get('https://makhana-backend.onrender.com/api/orders/all')
   
       .then(res => {
         const userSpecificOrders = res.data.filter(order => order.user?.id === user.id);

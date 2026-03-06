@@ -51,7 +51,7 @@ function Cart({ cart, setCart, user, setUser }) {
       orderDetails: itemsSummary,
       user: { id: user.id }
     };
-    axios.post('http://localhost:8082/api/orders/create', newOrder)
+    axios.post('https://makhana-backend.onrender.com/api/orders/create', newOrder)
       .then(res => {
         alert('Order placed successfully! 🎉');
         setCart([]);

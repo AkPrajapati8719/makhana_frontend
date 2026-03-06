@@ -38,13 +38,13 @@ function AdminDashboard({ user, setUser }) {
   }, []);
 
   const fetchOrders = () => {
-    axios.get('http://localhost:8082/api/orders/all')
+    axios.get('https://makhana-backend.onrender.com/api/orders/all')
       .then(res => setOrders(res.data))
       .catch(err => console.error("Orders fetch error:", err));
   };
 
   const fetchProducts = () => {
-    axios.get('http://localhost:8082/api/products')
+    axios.get('https://makhana-backend.onrender.com/api/products')
       .then(res => setProducts(res.data))
       .catch(err => console.error("Products fetch error:", err));
   };
@@ -57,7 +57,7 @@ function AdminDashboard({ user, setUser }) {
   };
 
   const handleStatusChange = (orderId, newStatus) => {
-    axios.put(`http://localhost:8082/api/orders/update-status/${orderId}?status=${newStatus}`)
+    axios.put(`https://makhana-backend.onrender.com/api/orders/update-status/${orderId}?status=${newStatus}`)
       .then(res => {
         toast.success(`Order #${orderId} status updated to ${newStatus}!`); 
         fetchOrders(); 
@@ -90,7 +90,7 @@ function AdminDashboard({ user, setUser }) {
 
     setIsUploading(true);
     try {
-      const res = await axios.post('http://localhost:8082/api/products/upload-image', formData, {
+      const res = await axios.post('https://makhana-backend.onrender.com/api/products/upload-image', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setNewProduct({ ...newProduct, imageUrl: res.data.imageUrl });
@@ -105,7 +105,7 @@ function AdminDashboard({ user, setUser }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (editingId) {
-      axios.put(`http://localhost:8082/api/products/update/${editingId}`, newProduct)
+      axios.put(`https://makhana-backend.onrender.com/api/products/update/${editingId}`, newProduct)
         .then(res => {
           toast.success("Product Successfully Updated!"); 
           fetchProducts();
@@ -113,7 +113,7 @@ function AdminDashboard({ user, setUser }) {
         })
         .catch(err => toast.error("Error updating product: " + err.message));
     } else {
-      axios.post('http://localhost:8082/api/products/add', newProduct)
+      axios.post('https://makhana-backend.onrender.com/api/products/add', newProduct)
         .then(res => {
           toast.success("Product Successfully Added!"); 
           fetchProducts();
@@ -125,7 +125,7 @@ function AdminDashboard({ user, setUser }) {
 
   const handleDeleteProduct = (id) => {
     if(window.confirm("Are you sure you want to delete this product?")) {
-      axios.delete(`http://localhost:8082/api/products/delete/${id}`)
+      axios.delete(`https://makhana-backend.onrender.com/api/products/delete/${id}`)
         .then(res => { 
           toast.success("Product Deleted!"); 
           fetchProducts(); 
@@ -521,7 +521,7 @@ function AdminDashboard({ user, setUser }) {
               <tr key={p.id} style={{ borderTop: `1px solid ${theme.border}` }}>
                 <td style={{ padding: '12px' }}>
                   <img
-                    src={p.imageUrl}
+                    src={p.imageUrl ? p.imageUrl.replace('http://localhost:8082', 'https://makhana-backend.onrender.com') : ''}
                     alt={p.name}
                     style={{
                       width: '55px',
@@ -585,7 +585,7 @@ function AdminDashboard({ user, setUser }) {
           }}>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: 10 }}>
               <img
-                src={p.imageUrl}
+                src={p.imageUrl ? p.imageUrl.replace('http://localhost:8082', 'https://makhana-backend.onrender.com') : ''}
                 alt={p.name}
                 style={{
                   width: '55px',

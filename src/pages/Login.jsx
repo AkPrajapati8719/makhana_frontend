@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -28,7 +29,7 @@ function Login({ setUser }) {
     e.preventDefault();
 
     if (isLoginView) {
-      axios.post('http://localhost:8082/api/users/login', { email, password })
+      axios.post('https://makhana-backend.onrender.com/api/users/login', { email, password })
         .then((response) => {
           toast.success(`Welcome back, ${response.data.name}!`);
           setUser(response.data);
@@ -44,7 +45,7 @@ function Login({ setUser }) {
         });
     } else {
       const newUser = { name, email, password, phone, address };
-      axios.post('http://localhost:8082/api/users/register', newUser)
+      axios.post('https://makhana-backend.onrender.com/api/users/register', newUser)
         .then(() => {
           toast.success("Account created successfully! Please login.");
           setIsLoginView(true);

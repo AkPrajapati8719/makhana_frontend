@@ -22,7 +22,7 @@ function Home({ searchQuery, addToCart, user }) {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:8082/api/products')
+    axios.get('https://makhana-backend.onrender.com/api/products')
       .then(res => setProducts(res.data))
       .catch(err => console.error("Error fetching products:", err));
   }, []);
@@ -55,7 +55,7 @@ function Home({ searchQuery, addToCart, user }) {
       user: { id: user.id }
     };
     // Place order via API
-    fetch('http://localhost:8082/api/orders/create', {
+    fetch('https://makhana-backend.onrender.com/api/orders/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newOrder)

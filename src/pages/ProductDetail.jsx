@@ -20,7 +20,7 @@ function ProductDetail({ addToCart }) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get(`http://localhost:8082/api/products/${id}`)
+    axios.get(`https://makhana-backend.onrender.com/api/products/${id}`)
       .then(response => setProduct(response.data))
       .catch(error => console.error("Error fetching product:", error));
   }, [id]);
