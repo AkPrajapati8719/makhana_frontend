@@ -215,8 +215,8 @@ function Home({ searchQuery, addToCart, user }) {
             }}
           >
             <img
-              src={product.imageUrl}
-              alt={product.name}
+               src={product.imageUrl ? product.imageUrl.replace('http://localhost:8082', 'https://makhana-backend.onrender.com') : ''}
+               alt={product.name}
               style={{
                 width: '100%',
                 height: '200px',

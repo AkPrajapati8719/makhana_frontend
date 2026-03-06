@@ -89,7 +89,7 @@ function ProductDetail({ addToCart }) {
           padding: '30px'
         }}>
           <img
-            src={product.imageUrl}
+            src={product.imageUrl ? product.imageUrl.replace('http://localhost:8082', 'https://makhana-backend.onrender.com') : ''}
             alt={product.name}
             loading="lazy"
             style={{

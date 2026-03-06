@@ -133,7 +133,7 @@ function Cart({ cart, setCart, user, setUser }) {
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
                   <img
-                    src={item.imageUrl}
+                    src={item.imageUrl ? item.imageUrl.replace('http://localhost:8082', 'https://makhana-backend.onrender.com') : ''}
                     alt={item.name}
                     style={{
                       width: '90px',
