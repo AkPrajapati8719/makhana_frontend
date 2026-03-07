@@ -80,16 +80,16 @@ function Home({ searchQuery, addToCart, user }) {
       fontFamily: "'Inter', sans-serif"
     }}>
 
-      {/* ================= HERO SECTION ================= */}
+     {/* ================= HERO SECTION ================= */}
       <div style={{
         background: theme.bgCard,
-        borderRadius: '24px',
+        borderRadius: '32px',
         marginBottom: '60px',
         display: 'flex',
         flexWrap: 'wrap-reverse',
         overflow: 'hidden',
-        border: `1px solid ${theme.border}`,
-        boxShadow: '0 20px 50px rgba(0,0,0,0.4)'
+        border: `1px solid rgba(255, 255, 255, 0.05)`,
+        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)'
       }}>
 
         {/* TEXT */}
@@ -100,86 +100,115 @@ function Home({ searchQuery, addToCart, user }) {
           flexDirection: 'column',
           justifyContent: 'center'
         }}>
+          
+          {/* New Modern Pill Badge */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '8px 16px',
+            borderRadius: '30px',
+            background: 'rgba(255,255,255,0.05)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            marginBottom: '24px',
+            width: 'fit-content'
+          }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: theme.accentGold }}></span>
+            <span style={{ fontSize: '11px', fontWeight: 'bold', color: '#E5F3F9', textTransform: 'uppercase', letterSpacing: '1px' }}>
+              Premium D2C Superfood
+            </span>
+          </div>
+
+          {/* New Bold Heading */}
           <h1 style={{
-            fontSize: 'clamp(28px, 4vw, 42px)',
-            fontWeight: '800',
+            fontSize: 'clamp(42px, 5vw, 64px)',
+            fontWeight: '900',
             color: theme.textPrimary,
             marginBottom: '20px',
-            lineHeight: '1.2'
+            lineHeight: '1.1'
           }}>
-            Premium Roasted <span style={{ color: theme.accentGold }}>Makhana</span>
+            Snack <br/>
+            <span style={{ color: theme.accentGold, dropShadow: '0 0 10px rgba(198, 167, 94, 0.5)' }}>Fearlessly.</span>
           </h1>
 
+          {/* New Subtitle */}
           <p style={{
-            fontSize: '16px',
+            fontSize: '18px',
             color: theme.textSecondary,
-            marginBottom: '30px',
-            maxWidth: '450px',
-            lineHeight: '1.6'
+            marginBottom: '40px',
+            maxWidth: '480px',
+            lineHeight: '1.7',
+            fontWeight: '300'
           }}>
-            Savor the perfect crunch made with pure ingredients and exceptional quality.
+            Experience the ultimate superfood crunch. Elevate your health with our perfectly roasted, organically sourced Fox Nuts. Bold flavors. Zero guilt.
           </p>
 
+          {/* Updated Button matching the theme */}
           <button
             style={{
-              padding: '12px 36px',
-              background: theme.forestGreen,
-              border: `1px solid ${theme.accentGold}`,
-              color: '#fff',
+              padding: '16px 40px',
+              background: theme.accentGold,
+              color: theme.bgPrimary,
               borderRadius: '30px',
-              fontWeight: '600',
-              fontSize: '15px',
+              fontWeight: '800',
+              fontSize: '16px',
               cursor: 'pointer',
-              transition: '0.3s'
+              transition: '0.3s',
+              border: 'none',
+              boxShadow: `0 0 20px ${theme.accentGold}40`,
+              width: 'fit-content'
             }}
-            onMouseOver={e => e.target.style.background = theme.accentGold}
-            onMouseOut={e => e.target.style.background = theme.forestGreen}
+            onMouseOver={e => {
+              e.target.style.background = theme.textPrimary;
+              e.target.style.boxShadow = `0 0 30px rgba(255,255,255,0.3)`;
+            }}
+            onMouseOut={e => {
+              e.target.style.background = theme.accentGold;
+              e.target.style.boxShadow = `0 0 20px ${theme.accentGold}40`;
+            }}
+            onClick={() => document.getElementById('products-grid')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Shop Now
+            Shop The Drop
           </button>
         </div>
 
-        {/* IMAGE */}
-        <div style={{ flex: '1.2 1 50%', minHeight: '300px' }}>
+        {/* IMAGE (Replaced Logo with aesthetic glowing image) */}
+        <div style={{ 
+          flex: '1.2 1 50%', 
+          minHeight: '400px', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          padding: '40px',
+          position: 'relative'
+        }}>
+           {/* Glow Effect behind image */}
+           <div style={{
+              position: 'absolute',
+              width: '300px',
+              height: '300px',
+              background: theme.accentGold,
+              filter: 'blur(100px)',
+              opacity: '0.2',
+              borderRadius: '50%'
+           }}></div>
+
           <img
-            src="/images/Logo (2).png"
-            alt="Makhana"
+            src="public/images/Logo (2).png"
+            alt="Premium Makhana"
             style={{
               width: '100%',
-              height: '100%',
+              maxWidth: '400px',
+              aspectRatio: '1/1',
               objectFit: 'cover',
-              filter: 'brightness(0.9)'
+              borderRadius: '50%', /* Makes it a perfect circle */
+              border: '4px solid rgba(255, 255, 255, 0.05)',
+              position: 'relative',
+              zIndex: 2,
+              boxShadow: `0 0 40px -10px ${theme.accentGold}60`
             }}
           />
         </div>
-      </div>
-
-      {/* ================= CATEGORY FILTER ================= */}
-      <div style={{
-        display: 'flex',
-        gap: '20px',
-        marginBottom: '50px',
-        flexWrap: 'wrap',
-        justifyContent: 'center'
-      }}>
-        {['All', 'Flavored', 'Roasted', 'Organic'].map(cat => (
-          <button
-            key={cat}
-            onClick={() => setCategory(cat)}
-            style={{
-              padding: '10px 28px',
-              borderRadius: '30px',
-              border: `1px solid ${theme.border}`,
-              background: category === cat ? theme.forestGreen : theme.bgCard,
-              color: category === cat ? '#fff' : theme.textSecondary,
-              fontWeight: '500',
-              cursor: 'pointer',
-              transition: '0.3s'
-            }}
-          >
-            {cat}
-          </button>
-        ))}
       </div>
 
       {/* ================= PRODUCT GRID ================= */}
